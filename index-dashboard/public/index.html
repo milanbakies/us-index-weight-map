@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>US Index Weight Map</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600;650&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>US Index Weight Map</h1>
+        <p>
+          Live treemap of the 20 largest holdings in each major U.S. equity
+          index. Tile size = index weight; color = selected period change.
+          Auto-refreshes while this page is open.
+        </p>
+      </header>
+
+      <div class="controls">
+        <label class="field">
+          Index
+          <select id="indexSelect"></select>
+        </label>
+        <label class="field">
+          Change period
+          <select id="periodSelect"></select>
+        </label>
+        <span id="marketPill" class="pill market unknown">
+          <span class="dot"></span>
+          <span class="market-copy">
+            <strong id="marketTitle">US market</strong>
+            <span id="marketDetail">Checking…</span>
+          </span>
+        </span>
+        <span id="statusPill" class="pill">
+          <span class="dot"></span>
+          <span id="statusText">Connecting…</span>
+        </span>
+        <div class="spacer"></div>
+        <div class="legend">
+          <span><i class="swatch up"></i> Up</span>
+          <span><i class="swatch down"></i> Down</span>
+        </div>
+      </div>
+
+      <div class="stats" id="stats"></div>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2 id="mapTitle">Treemap</h2>
+          <div class="meta" id="mapMeta">Loading live prices…</div>
+        </div>
+        <svg id="treemap" role="img" aria-label="Index weight treemap"></svg>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Holdings detail</h2>
+          <div class="meta">
+            Full names · period change + extended hours vs regular close
+          </div>
+        </div>
+        <div class="list" id="list"></div>
+      </section>
+
+      <p class="footer">
+        Prices via Yahoo Finance chart API (unofficial). Weights from SPY / QQQ
+        / DIA holdings snapshots. Not investment advice.
+      </p>
+    </div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

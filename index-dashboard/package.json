@@ -1,0 +1,14 @@
+{
+  "name": "us-index-weight-map",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Live treemap of top US index holdings with period and extended-hours changes",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
